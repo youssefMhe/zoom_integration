@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {ZoomMtg} from "@zoomus/websdk";
+import dotenv from 'dotenv'
 
+dotenv.config()
 
 // pass in your Zoom JWT API key, Zoom JWT API secret, Zoom meeting number, and 0 to join meeting or webinar or 1 to start meeting
 //console.log(generateSignature(process.env.API_KEY, process.env.API_SECRET, 123456789, 0))
@@ -46,14 +48,14 @@ const Zoom = (props) => {
                 console.log(success)
 
                 ZoomMtg.join({
-                    signatureEndpoint: 'http://localhost:3000/',
+                    signatureEndpoint: `${process.env.signatureEndpoint}`,
                     signature: signature_code,
-                    meetingNumber: 87124587231,
-                    apiSecret: 'Jj0zuGYqNQPSwadO5wY12R493BmgtAGc83Od',
-                    userName: 'Zoom',
-                    apiKey: 'zsjCEO5kSpWHJHqveAofLg',
-                    userEmail: 'kiapolo41@gmail.com',
-                    passWord: 'pX1c0s',
+                    meetingNumber: `${process.env.meetingNumber}`,
+                    apiSecret: `${process.env.apiSecret}`,
+                    userName: `${process.env.userName}`,
+                    apiKey: `${process.env.apiKey}`,
+                    userEmail: `${process.env.userEmail}`,
+                    passWord: `${process.env.passWord}`,
                     success: (success) => {
                         console.log(success)
                     },
