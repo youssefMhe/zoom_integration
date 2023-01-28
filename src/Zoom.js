@@ -71,9 +71,7 @@ const Zoom = (props) => {
         })
     }
 
-    return (<div className={"app"}>
-        gggg
-    </div>)
+    return (<div className={"app"}></div>)
 
 };
 
